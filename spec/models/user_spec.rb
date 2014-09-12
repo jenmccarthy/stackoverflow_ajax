@@ -6,4 +6,6 @@ describe User do
 
   it { should have_many :answers }
 
+  it { should validate_uniqueness_of :username }
+
 end
