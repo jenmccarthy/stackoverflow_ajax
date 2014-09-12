@@ -7,8 +7,46 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container container-font">
+  <div class="navbar navbar-default">
 
-<%= yield %>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">Stack Overflow Clone</a>
+      </div>
 
+      <div class="navbar-collapse collapse navbar-responsive-collapse nav_formatting">
+        <div class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <div class="nav-format">Logged in as <%= current_user.name %></div>
+            <div class="nav-format"><%= link_to "Log Out", logout_path %></div>
+          <% else %>
+            <div class="nav-format"><%= link_to "Sign Up", signup_path %></div>
+            <div class="nav-format"><%= link_to "Log In", login_path %></div>
+          <% end %>
+          <div class="nav-format"><%= link_to "Home",root_path %></div>
+        </div>
+      </div>
+    </div>
+
+  <%= yield %>
+
+    <div id='flash_notice' class='clearfix'>
+      <% if flash[:notice] == 'Successful' %>
+        <div class='alert alert-success' role='alert'>
+          <%= flash[:notice] %></div>
+      <% elsif flash[:notice] != nil %>
+        <div class='alert alert-info' role='alert'>
+          <%= flash[:notice] %></div>
+      <% end %>
+      <% if flash[:alert] != nil %>
+        <div class='alert alert-danger' role='alert'>
+          <%= flash[:alert] %></div>
+      <% end %>
+    </div>
 </body>
 </html>
