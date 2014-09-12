@@ -25,4 +25,15 @@ describe "User sign in" do
     click_button 'Log In'
     expect(page).to have_content 'Logged in as nacho libre'
   end
+
+  it "successfully log a user out" do
+    user = User.create(name: 'nacho libre', password: 'libre')
+    visit '/login'
+    fill_in 'Name', with: 'nacho libre'
+    fill_in 'Password', with: 'libre'
+    click_button 'Log In'
+    click_link 'Log Out'
+    expect(page).to have_content 'logged out'
+  end
+
 end
