@@ -19,6 +19,10 @@
 @import url(http://fonts.googleapis.com/css?family=Pacifico|Courgette);
 @import url(http://fonts.googleapis.com/css?family=Noto+Serif:400,400italic);
 
+.navbar-default {
+  border: 1px solid black;
+}
+
 .nav-format {
   float: left;
   padding-right: 30px;
@@ -37,10 +41,6 @@
 
 body {
 font-family: 'Noto Serif', serif;
-}
-
-.top_marg {
-  margin-top: 20px
 }
 
 .feature-images-col {
