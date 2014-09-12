@@ -10,4 +10,10 @@ describe "User sign in" do
     click_button 'Create User'
     expect(page).to have_content 'Logged in as nacho'
   end
+
+  it "will successfully show the log in page from the home page" do
+    visit '/signup'
+    click_link 'Log In'
+    expect(page).to have_content 'Log In'
+  end
 end
