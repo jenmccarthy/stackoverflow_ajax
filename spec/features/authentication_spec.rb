@@ -16,4 +16,13 @@ describe "User sign in" do
     click_link 'Log In'
     expect(page).to have_content 'Log In'
   end
+
+  it "will successfully allow a registered user to log in" do
+    user = User.create(name: 'nacho libre', password: 'libre')
+    visit '/login'
+    fill_in 'Name', with: 'nacho libre'
+    fill_in 'Password', with: 'libre'
+    click_button 'Log In'
+    expect(page).to have_content 'Logged in as nacho libre'
+  end
 end
