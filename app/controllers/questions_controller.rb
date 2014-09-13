@@ -5,5 +5,30 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
+  def new
+    @question = current_user.questions.new
+  end
+
+  def create
+    @question = current_user.questions.new(question_params)
+    if @question.save
+      flash[:notice] = "Successful"
+      redirect_to user_path(current_user)
+    else
+      render 'new'
+    end
+  end
+  def show
+    @question = Question.find(params[:id])
+  end
+
+  def destroy
+    @question
+  end
+
+  private
+  def question_params
+    params.require(:question).permit(:description, :user_id)
+  end
 
 end
