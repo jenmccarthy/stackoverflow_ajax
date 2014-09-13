@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_filter :authorize, only: [:edit, :update]
+  before_filter :authorize, only: [:edit, :update, :destroy]
 
   def index
     @questions = Question.all
@@ -23,7 +23,10 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question
+    @question = Question.find(params[:id])
+    @question.destroy
+    flash[:notice] = "Successful"
+    redirect_to user_path(current_user)
   end
 
   private
