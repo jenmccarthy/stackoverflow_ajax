@@ -7,3 +7,13 @@
 <div class ='margin-top'>
   <%= link_to "Add an Answer", new_question_answer_path(@question), class: 'btn btn-primary', id: 'new_link', remote: true %>
 </div>
+
+<div class='margin-top'>
+  <%= form_for @question do |f| %>
+  <div class='form-group'>
+    <%= f.collection_select :id, Answer.all, :id, :description, :class => 'form-select' %>
+    <%= f.hidden_field :favorite_answer_id, :value => 1 %>
+    <%= f.submit(:class => 'btn btn-primary') %>
+  </div>
+  <% end %>
+</div>

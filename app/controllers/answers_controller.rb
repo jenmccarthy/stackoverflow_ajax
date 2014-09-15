@@ -17,6 +17,16 @@ class AnswersController < ApplicationController
     end
   end
 
+  def update
+
+    @answer = Answer.find(params[:id])
+    if @answer.update(answer_params)
+      redirect_to user_questions_path
+      flash[:notice] = "#{@answer} Updated Successfully"
+
+    end
+  end
+
 private
 
   def answer_params

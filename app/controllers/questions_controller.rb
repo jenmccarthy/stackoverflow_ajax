@@ -23,6 +23,16 @@ class QuestionsController < ApplicationController
     @answers = @question.answers
   end
 
+  def update
+
+    @question = Question.find(params[:id])
+    if @question.update(question_params)
+      redirect_to questions_path
+      flash[:notice] = "#{@question.description} Updated Successfully"
+
+    end
+  end
+
   def destroy
     @question = Question.find(params[:id])
     @question.destroy
@@ -32,7 +42,7 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:description, :user_id)
+    params.require(:question).permit(:description, :user_id, :favorite_answer_id)
   end
 
 end
