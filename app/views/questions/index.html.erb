@@ -2,7 +2,8 @@
 <h4>Click on a question to see its answers:</h4>
   <ul>
     <% @questions.each do |question| %>
-      <li><%= link_to question.description, question_path(question) %></li>
+      <% user = User.find(question.user_id) %>
+      <li><%= link_to question.description, question_path(question) %>  |  Posted By: <%= user.name %></li>
     <% end %>
   </ul>
 </div>

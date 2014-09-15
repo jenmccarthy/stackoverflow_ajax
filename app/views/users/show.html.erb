@@ -1,10 +1,10 @@
 <div class='col-xs-12 photo-col1'>
   <div class='nav_formatting'>
-    <p>Questions for <%= current_user.name %></p>
+    <p>Questions written by <%= current_user.name %></p>
     <%= render @questions %>
   </div>
-  <div class='nav_formatting'>
-    <%= link_to "Add a new question", new_user_question_path(current_user) %>
+  <div class='margin-top'>
+    <%= link_to "Add a new question",new_user_question_path(current_user),:class =>"btn btn-primary" %>
   </div>
 
 </div>

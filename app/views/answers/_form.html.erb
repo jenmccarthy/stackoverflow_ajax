@@ -2,7 +2,7 @@
   <div class="form-group answer-group">
     <%= f.hidden_field :user_id, :value =>current_user.id %>
     <%= f.label :Enter_Answer %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :autofocus=>true %>
     <%= f.submit(:class => "btn btn-primary") %>
   </div>
 <% end %>
