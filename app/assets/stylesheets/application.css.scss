@@ -16,8 +16,13 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url(http://fonts.googleapis.com/css?family=Pacifico|Courgette);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
 @import url(http://fonts.googleapis.com/css?family=Noto+Serif:400,400italic);
+@import url(http://fonts.googleapis.com/css?family=Nova+Square);
+
+.navbar-default .navbar-brand {
+  color: #2a6496
+}
 
 .navbar-default {
   border: 1px solid black;
@@ -36,11 +41,11 @@
 }
 
 .navbar-brand {
-  font-family: 'Pacifico', cursive;
+  font-family: 'Nova Square', cursive;
 }
 
 body {
-font-family: 'Noto Serif', serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .feature-images-col {

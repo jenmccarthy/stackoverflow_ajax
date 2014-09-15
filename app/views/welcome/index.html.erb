@@ -1,16 +1,17 @@
     <div class="col-xs-12 welcome_text">
       <h1>Welcome to Stack Overflow Clone</h1>
-        <p>A website to ask your tech questions and post tech answers!</p>
+        <p>A Ruby Rails/AJAX Website to ask your tech questions and post tech answers! </p>
     </div>
 
-    <div class='feature-images clearfix'>
-        <div class="col-sm-6 feature-images-col">
-          <%= link_to image_tag('question.jpg', :class => 'welcome_images img-circle '), questions_path %>
-          <h3>Submit your Questions!</h3>
+    <div class='clearfix feature-images'>
+        <div class="col-xs-12 col-sm-6 feature-images-col">
+          <h3>See recently submitted questions!</h3>
+          <%= link_to image_tag('question.jpg', :class => 'welcome_images img-circle img-responsive'), questions_path %>
         </div>
-        <div class="col-sm-6 feature-images-col">
-          <%= image_tag('answer.jpg', :class => 'welcome_images img-thumbnail') %>
+        <div class="col-xs-12 col-sm-6 feature-images-col">
           <h3>Community Answers!</h3>
+          <%= image_tag('answer.jpg', :class => 'welcome_images img-thumbnail img-responsive') %>
+          <h3>On Stack Overflow you can ask questions and receive community answers!</h3>
         </div>
     </div>
 
