@@ -8,12 +8,14 @@
   <%= link_to "Add an Answer", new_question_answer_path(@question), class: 'btn btn-primary', id: 'new_link', remote: true %>
 </div>
 
-<div class='margin-top'>
-  <%= form_for (@question), remote: true do |f| %>
-  <div class='form-group field-height'>
-    <%= f.label :Pick_favorite_question %>
-    <%= f.collection_select :favorite_answer_id, @question.answers, :id, :description, :class => 'form-select field-height' %>
-    <%= f.submit(:class => 'btn btn-primary') %>
+<% if @question.user_id == current_user.id %>
+  <div class='margin-top'>
+    <%= form_for (@question), remote: true do |f| %>
+    <div class='form-group field-height'>
+      <%= f.label :Pick_favorite_question %>
+      <%= f.collection_select :favorite_answer_id, @question.answers, :id, :description, :class => 'form-select field-height' %>
+      <%= f.submit(:class => 'btn btn-primary') %>
+    </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
+<% end %>

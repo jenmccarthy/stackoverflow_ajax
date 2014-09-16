@@ -7,3 +7,11 @@
     <% end %>
   </ul>
 </div>
+
+
+<div>
+  <%= form_tag(questions_path, :method => 'get', id: "search-form") do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "search" %>
+  <% end %>
+</div>
