@@ -37,6 +37,16 @@ describe "User sign in" do
     expect(page).to have_content 'Logged in as nacho libre'
   end
 
+
+  it "will not allow a registered user to log in with incorrect information" do
+    user = User.create(name: 'nacho libre', password: 'libre')
+    visit '/login'
+    fill_in 'Name', with: 'nacho'
+    fill_in 'Password', with: 'nacho'
+    click_button 'Log In'
+    expect(page).to have_content 'email or password is invalid'
+  end
+
   it "successfully log a user out" do
     user = User.create(name: 'nacho libre', password: 'libre')
     visit '/login'
