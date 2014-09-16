@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "User sign in" do
-  it "will successfully allow a user to sign in" do
+  it "will successfully allow a user to sign up" do
     newuser = User.new(name: 'nacho libre', password: 'libre')
     visit '/signup'
     fill_in 'Name', with: 'nacho libre'
@@ -10,6 +10,17 @@ describe "User sign in" do
     click_button 'Create User'
     expect(page).to have_content 'Logged in as nacho'
   end
+
+  it "will not allow a user to sign up without correct information" do
+    newuser = User.new(name: 'nacho libre', password: 'libre')
+    visit '/signup'
+    fill_in 'Name', with: 'nacho libre'
+    fill_in 'Password', with: '12'
+    fill_in 'Password confirmation', with: '13'
+    click_button 'Create User'
+    expect(page).to have_content "Password confirmation doesn't match Password"
+  end
+
 
   it "will successfully show the log in page from the home page" do
     visit '/signup'
