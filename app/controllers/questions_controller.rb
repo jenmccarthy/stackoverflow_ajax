@@ -27,7 +27,7 @@ class QuestionsController < ApplicationController
 
     @question = Question.find(params[:id])
     if @question.update(question_params)
-      redirect_to questions_path
+      redirect_to user_questions_path(current_user)
       flash[:notice] = "#{@question.description} Updated Successfully"
 
     end

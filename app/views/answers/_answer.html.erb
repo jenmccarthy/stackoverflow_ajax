@@ -1,5 +1,7 @@
 <ul>
-
-  <li><%= answer.description %></li>
-
+    <% if @question.favorite_answer_id == answer.id %>
+      <li><%= image_tag("favorite.png", :class=>"list-image") %> <%= answer.description %></li>
+    <% else %>
+      <li><%= answer.description %></li>
+    <% end %>
 </ul>
