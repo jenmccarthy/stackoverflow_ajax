@@ -1,4 +1,4 @@
-<%= form_for ([@question, @answer]), html: {class: "form"}, remote: true do |f| %>
+<%= form_for ([@question, @answer]), remote: true do |f| %>
   <div class="form-group answer-group">
     <%= f.hidden_field :user_id, :value =>current_user.id %>
     <%= f.label :Enter_Answer %>
