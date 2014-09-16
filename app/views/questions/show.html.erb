@@ -12,7 +12,7 @@
   <%= form_for @question do |f| %>
   <div class='form-group field-height'>
     <%= f.label :Pick_favorite_question %>
-    <%= f.collection_select :favorite_answer_id, Answer.all, :id, :description, :class => 'form-select field-height' %>
+    <%= f.collection_select :favorite_answer_id, @question.answers, :id, :description, :class => 'form-select field-height' %>
     <%= f.submit(:class => 'btn btn-primary') %>
   </div>
   <% end %>
