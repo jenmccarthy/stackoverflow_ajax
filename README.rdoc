@@ -1,6 +1,13 @@
-== Stack Overflow Clone - Ajax
+# Stack Overflow Clone - Ajax
 
-=Randy Leighton Jennifer McCarthy
+##Jennifer McCarthy and Randy Leighton
 
-CSRF Protection Enabled
+###Deployment
+Clone this repository locally and run rake db:create and rake db:migrate
+
+Also, visit the live deployment on Heroku at stack-clone.herokuapp.com
+
+
+
+
 
